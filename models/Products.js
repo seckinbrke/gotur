@@ -10,6 +10,14 @@ const ProductSchema = new Schema({
         type: Number,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
+    productPhoto: {
+        type: String,
+        required: [true, '`{PATH}` alanı zorunludur.'],
+    },
+    type: {
+        type: String,
+        required: [true, '`{PATH}` alanı zorunludur.'],
+    },
 
 });
 

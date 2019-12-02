@@ -3,12 +3,8 @@ var router = express.Router();
 const Products = require('../models/Products');
 
 router.post('/add', (req, res) => {
-    const { name, price } = req.body;
     console.log(name)
-    const product = new Products({
-        name: name,
-        price: price
-    })
+    const product = new Products(req.body)
     product.save().then((data) => {
         res.json(data)
     }).catch((err) => {
@@ -18,7 +14,7 @@ router.post('/add', (req, res) => {
 
 router.post('/get', (req, res) => {
     const { name } = req.body;
-    Products.findOne({ name: {$options: 'i', $regex: name}}).then((data) => {
+    Products.find({ name: { $options: 'i', $regex: name } }).then((data) => {
         res.json(data);
     }).catch((err) => {
         res.json(err)
