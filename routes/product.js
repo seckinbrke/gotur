@@ -3,8 +3,14 @@ var router = express.Router();
 const Products = require('../models/Products');
 
 router.post('/add', (req, res) => {
+    const { name, price, productPhoto, type } = req.body;
     console.log(name)
-    const product = new Products(req.body)
+    const product = new Products({
+        name,
+        price,
+        productPhoto,
+        type
+    })
     product.save().then((data) => {
         res.json(data)
     }).catch((err) => {
