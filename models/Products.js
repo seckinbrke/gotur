@@ -14,7 +14,11 @@ const ProductSchema = new Schema({
         type: String,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
-    type: {
+    subType: {
+        type: String,
+        required: [true, '`{PATH}` alanı zorunludur.'],
+    },
+    mainType: {
         type: String,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
