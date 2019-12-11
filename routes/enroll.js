@@ -11,4 +11,14 @@ router.post('/getCategoryItems', (req, res) => {
         res.json(err)
     })
 })
+
+router.post('/getFilteredItem', (req, res) => {
+    const { mainType, name } = req.body;
+    Product.find({ mainType, name: { $options: 'i', $regex: name } }).then((data) => {
+        res.json(data)
+    }).catch((err) => {
+        res.json(err)
+    })
+})
+
 module.exports = router;
