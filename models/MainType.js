@@ -12,5 +12,6 @@ const MainTypeSchema = new Schema({
     }
 
 });
+//sdasdsadsadasd
 
 module.exports = mongoose.model('mainType', MainTypeSchema);
