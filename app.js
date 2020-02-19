@@ -9,7 +9,7 @@ var productRouter = require('./routes/product');
 var mainTypeRouter = require('./routes/mainType');
 var enrollRouter = require('./routes/enroll');
 var orderRouter = require('./routes/order');
-var userRouter = require('./routes/order');
+var userRouter = require('./routes/user');
 
 var app = express();
 const db = require('./helper/db')();
