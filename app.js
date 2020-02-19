@@ -8,9 +8,13 @@ var indexRouter = require('./routes/index');
 var productRouter = require('./routes/product');
 var mainTypeRouter = require('./routes/mainType');
 var enrollRouter = require('./routes/enroll');
+var orderRouter = require('./routes/order');
+var userRouter = require('./routes/user');
 
 var app = express();
 const db = require('./helper/db')();
+var server = require("http").createServer(app);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -25,14 +29,16 @@ app.use('/', indexRouter);
 app.use('/product', productRouter);
 app.use('/mainType', mainTypeRouter);
 app.use('/enroll', enrollRouter);
+app.use('/user', userRouter);
+app.use('/order', orderRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
