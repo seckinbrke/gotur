@@ -39,5 +39,5 @@ const UserSchema = new Schema({
         required: [true, '`{PATH}` alanı zorunludur.'],
     }
 });
-
+//deneme
 module.exports = mongoose.model('user', UserSchema);
