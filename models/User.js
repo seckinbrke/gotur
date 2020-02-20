@@ -8,29 +8,25 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: [true, '`{PATH}` alanı zorunludur.'],
+        required: [true, 'Ad alanı zorunludur.'],
         trim: true
     },
     surname: {
         type: String,
-        required: [true, '`{PATH}` alanı zorunludur.'],
+        required: [true, 'Soyadı alanı zorunludur.'],
         trim: true
     },
     password: {
         type: String,
-        required: [true, '`{PATH}` alanı zorunludur.'],
+        required: [true, 'Şifre alanı zorunludur.'],
         minlength: 7,
         trim: true,
-        validate(value) {
-            if (value.toLowerCase().includes('password')) {
-                throw new Error('Invalid password, try again')
-            }
-        }
+  
     },
     email: {
         type: String,
         unique: true,
-        required: [true, '`{PATH}` alanı zorunludur.'],
+        required: [true, 'Email alanı zorunludur.'],
         trim: true,
         lowercase: true,
         validate(value) {
@@ -41,11 +37,11 @@ const UserSchema = new Schema({
     },
     address: {
         type: String,
-        required: [true, '`{PATH}` alanı zorunludur.'],
+        required: [true, 'Adres alanı zorunludur.'],
     },
     phoneNumber: {
         type: String,
-        required: [true, '`{PATH}` alanı zorunludur.'],
+        required: [true, 'Telefon numarası alanı zorunludur.'],
         unique: true,
         minlength: 11,
         maxlength: 11

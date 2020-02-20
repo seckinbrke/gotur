@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = () => {
-    mongoose.connect('mongodb://127.0.0.1:27017/gotur-back', {
+    mongoose.connect('mongodb+srv://getir:seckinbrke123@getir-oend6.mongodb.net/test?retryWrites=true&w=majority', {
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
