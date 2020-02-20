@@ -11,9 +11,9 @@ router.post('/create', async (req, res) => {
     try {
         await user.save()
         user.generateAuthToken()
-        res.status(201).send({ user, token })
+        res.send({ user, token })
     } catch (error) {
-        res.status(400).send(error)
+        res.send(error)
     }
 })
 //SignIn

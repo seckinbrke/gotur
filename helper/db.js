@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = () => {
-    mongoose.connect('mongodb+srv://getir:seckinbrke123@getir-oend6.mongodb.net/test?retryWrites=true&w=majority', {
+    mongoose.connect('mongodb://127.0.0.1:27017/gotur-back', {
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -17,3 +17,4 @@ module.exports = () => {
 };
 
 //mongodb+srv://getir:seckinbrke123@getir-oend6.mongodb.net/test?retryWrites=true&w=majority'
+//mongodb://127.0.0.1:27017/task-manager-api
