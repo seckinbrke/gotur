@@ -40,5 +40,19 @@ router.post('/logout', auth, async (req, res) => {
     }
 })
 
+router.post('/emailcheck', (req, res) => {
+    const {email} = req.body;
+    User.findOne({email: email}).then((user) => {
+        if (user) {
+            res.json(true);
+        } else {
+            res.json(false);
+        }
+    }).catch(() => {
+        res.json(null);
+    })
+
+});
+
 
 module.exports = router;

@@ -38,7 +38,9 @@ const OrderSchema = new Schema({
         type: String,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
-
-});
+},{
+    timestamps: true
+}
+);
 
 module.exports = mongoose.model('order', OrderSchema);
