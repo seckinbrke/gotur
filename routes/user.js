@@ -51,7 +51,6 @@ router.post('/emailcheck', (req, res) => {
     }).catch(() => {
         res.json(null);
     })
-
 });
 
 

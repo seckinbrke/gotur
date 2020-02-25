@@ -39,10 +39,13 @@ const UserSchema = new Schema({
         type: String,
         required: [true, 'Adres alanı zorunludur.'],
     },
+    isAdmin: {
+        type: Boolean,
+        required: [true, 'Admin alanı zorunludur.'],
+    },
     phoneNumber: {
         type: String,
         required: [true, 'Telefon numarası alanı zorunludur.'],
-        unique: true,
         minlength: 11,
         maxlength: 11
     },
