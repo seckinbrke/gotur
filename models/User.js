@@ -21,7 +21,7 @@ const UserSchema = new Schema({
         required: [true, 'Şifre alanı zorunludur.'],
         minlength: 7,
         trim: true,
-  
+
     },
     email: {
         type: String,
@@ -67,13 +67,17 @@ const UserSchema = new Schema({
         type: Number,
         required: false,
     },
+    creditCardNameSurname: {
+        type: String,
+        required: [true, 'Adres alanı zorunludur.'],
+    },
     tokens: [{
         token: {
             type: String,
             require: true
         }
     }]
-},{
+}, {
     timestamps: true
 });
 
@@ -102,11 +106,11 @@ UserSchema.methods.generateAuthToken = async function () {
 UserSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
 
-    if(!user) {
+    if (!user) {
         throw new Error('Unable to login')
     }
     const isMatch = await bcrypt.compare(password, user.password)
-    if(!isMatch) {
+    if (!isMatch) {
         throw new Error('Email or password wrong!')
     }
     return user
@@ -115,8 +119,8 @@ UserSchema.statics.findByCredentials = async (email, password) => {
 //Hash the plain text password before saving
 UserSchema.pre('save', async function (next) {
     const user = this;
-    
-    if(user.isModified('password')) {
+
+    if (user.isModified('password')) {
         user.password = await bcrypt.hash(user.password, 8)
     }
 

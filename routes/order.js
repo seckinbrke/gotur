@@ -3,11 +3,20 @@ var router = express.Router();
 const Order = require('../models/Order');
 
 router.post('/add', (req, res) => {
- 
+    const order = new Order(req.body.orderObj)
+    order.save().then((data) => {
+        res.json(data)
+    }).catch((err) => {
+        res.json(err)
+    })
 })
 
-router.post('/get', (req, res) => {
-
+router.get('/get', (req, res) => {
+    Order.find().then((data) => {
+        res.json(data);
+    }).catch((err) => {
+        res.json(err)
+    })
 })
 
 module.exports = router;
