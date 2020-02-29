@@ -7,7 +7,7 @@ const OrderSchema = new Schema({
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
     userSurname: {
-        type: Number,
+        type: String,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
     userId: {
@@ -18,27 +18,19 @@ const OrderSchema = new Schema({
         type: String,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
-    productAdress: {
+    userAddress: {
         type: String,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
-    productPrice: {
-        type: Number,
+    userCreditCardInfo: {
+        type: Array,
         required: [true, '`{PATH}` alanı zorunludur.'],
     },
-    productPhoto: {
-        type: String,
+    shoppingItems: {
+        type: Array,
         required: [true, '`{PATH}` alanı zorunludur.'],
-    },
-    productSubType: {
-        type: String,
-        required: [true, '`{PATH}` alanı zorunludur.'],
-    },
-    productMainType: {
-        type: String,
-        required: [true, '`{PATH}` alanı zorunludur.'],
-    },
-},{
+    }
+}, {
     timestamps: true
 }
 );
