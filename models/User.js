@@ -50,22 +50,22 @@ const UserSchema = new Schema({
         maxlength: 11
     },
     creditCardNo: {
-        type: Number,
-        required: false,
+        type: String,
+        required: true,
         minlength: 16,
         maxlength: 16,
         trim: true
     },
     creditCardDate: {
         type: String,
-        required: false,
+        required: true,
         minlength: 5,
         maxlength: 5,
         trim: true
     },
     creditCardCvc: {
-        type: Number,
-        required: false,
+        type: String,
+        required: true,
     },
     creditCardNameSurname: {
         type: String,
