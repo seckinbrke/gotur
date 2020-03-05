@@ -69,7 +69,7 @@ const UserSchema = new Schema({
     },
     creditCardNameSurname: {
         type: String,
-        required: [true, 'Adres alanı zorunludur.'],
+        required: [false, 'Adres alanı zorunludur.'],
     },
     tokens: [{
         token: {
