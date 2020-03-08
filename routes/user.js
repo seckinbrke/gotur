@@ -52,64 +52,7 @@ router.post('/emailcheck', (req, res) => {
         res.json(null);
     })
 });
-//Credit Card Update
-// router.patch('/updateCardInfo/:id', async (req, res) => {
-//     const updates = Object.keys(req.body)
-//     const allowedUpdates = ['creditCardNo', 'creditCardDate', 'creditCardCvc', 'creditCardNameSurname']
 
-//     const isValidOperation = updates.every((update) => {
-//         return allowedUpdates.includes(update)
-//     })
-//     if (!isValidOperation) {
-//         return res.send({ error: 'Invalid updates' })
-//     }
-//     try {
-//         updates.forEach((update) => {
-//             req.user[update] = req.body[update]
-//         })
-//         await req.user.save()
-//         res.json(req.user)
-//     } catch (error) {
-//         res.send()
-//     }
-// })
-//Credit Card Update
-// router.patch('/updateCardInfo/:id', (req, res) => {
-//     User.findById(req.params._id, (error, user) => {
-//         if(req.body._id){
-//             delete req.body._id;
-//         }
-//         for( let b in req.body ){
-//             user[b] = req.body[b];
-//         }
-//         user.save()
-//         res.json(user)
-//     })
-// })
-// router.put('/updateCardInfo/:id', (req, res) => {
-//     User.findById(req.params._id, (err, user) => {
-//         user.creditCardNo = req.body.creditCardNo
-//         user.creditCardDate = req.body.creditCardDate
-//         user.creditCardCvc = req.body.creditCardCvc
-//         user.creditCardNameSurname = req.body.creditCardNameSurname
-//         user.save()
-//         res.json(user)
-//     })
-// })
-// router.put('/updateCardInfo/:id', (req, res) => {
-//     const userId = req.params._id
-//     const keys = Object.keys(req.body)
-
-//     //const user = User.findById(userId)
-
-//     keys.forEach(key => {
-//         req.user[key] = req.body[key]
-//     })
-//     req.user.save()
-//     res.json()
-
-
-// })
 router.put('/updateCardInfo/:id', (req, res) => {
     User.updateOne(req.body._id, {
         creditCardNo: req.body.creditCardNo,
