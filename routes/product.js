@@ -27,5 +27,16 @@ router.post('/get', (req, res) => {
         res.json(err)
     })
 })
+router.delete('/remove/:id',async (req, res) => {
+
+    try {
+        const product = await Products.findOneAndDelete({_id: req.params.id})
+        if (!product) return res.status(404).send()
+
+        res.send('Ürün Silindi')
+    } catch (error) {
+        res.status(500).send()
+    }
+})
 
 module.exports = router;

@@ -6,6 +6,8 @@ router.post('/add', (req, res) => {
     const order = new Order(req.body.orderObj)
     order.save().then((data) => {
         res.json(data)
+        console.log(data);
+        
     }).catch((err) => {
         res.json(err)
     })
