@@ -51,25 +51,25 @@ const UserSchema = new Schema({
     },
     creditCardNo: {
         type: String,
-        required: true,
+        required: [false, 'creditCardNo alanı zorunludur.'],
         minlength: 16,
         maxlength: 16,
         trim: true
     },
     creditCardDate: {
         type: String,
-        required: true,
+        required: [false, 'creditCardDate alanı zorunludur.'],
         minlength: 5,
         maxlength: 5,
         trim: true
     },
     creditCardCvc: {
         type: String,
-        required: true,
+        required: [false, 'creditCardCvc alanı zorunludur.'],
     },
     creditCardNameSurname: {
         type: String,
-        required: [false, 'Adres alanı zorunludur.'],
+        required: [false, 'Ad Soyad alanı zorunludur.'],
     },
     tokens: [{
         token: {
