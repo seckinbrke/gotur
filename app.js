@@ -10,6 +10,7 @@ var mainTypeRouter = require('./routes/mainType');
 var enrollRouter = require('./routes/enroll');
 var orderRouter = require('./routes/order');
 var userRouter = require('./routes/user');
+var bookRouter = require('./routes/book');
 
 var app = express();
 const db = require('./helper/db')();
@@ -30,7 +31,8 @@ app.use('/product', productRouter);
 app.use('/mainType', mainTypeRouter);
 app.use('/enroll', enrollRouter);
 app.use('/order', orderRouter);
-app.use('/users',userRouter)
+app.use('/users',userRouter);
+app.use('/book',bookRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
