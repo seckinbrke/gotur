@@ -26,4 +26,11 @@ router.get('/get', (req, res) => {
         res.json(err)
     })
 })
+router.get('/getSelectedBook/:id', (req, res) => {
+    Books.find({ _id: req.params.id }).then((data) => {
+        res.json(data)
+    }).catch((err) => {
+        res.json(err)
+    })
+})
 module.exports = router;
