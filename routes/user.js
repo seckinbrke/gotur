@@ -54,6 +54,7 @@ router.post('/emailcheck', (req, res) => {
 });
 
 router.put('/updateCardInfo/:id', (req, res) => {
+    //
     User.findByIdAndUpdate(req.body._id, {
         creditCardNo: req.body.creditCardNo,
         creditCardDate: req.body.creditCardDate,
