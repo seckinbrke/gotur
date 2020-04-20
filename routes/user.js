@@ -54,7 +54,7 @@ router.post('/emailcheck', (req, res) => {
 });
 
 router.put('/updateCardInfo/:id', (req, res) => {
-    User.updateOne(req.body._id, {
+    User.findByIdAndUpdate(req.body._id, {
         creditCardNo: req.body.creditCardNo,
         creditCardDate: req.body.creditCardDate,
         creditCardCvc: req.body.creditCardCvc,
@@ -65,9 +65,7 @@ router.put('/updateCardInfo/:id', (req, res) => {
         if(err){
             res.send(err)
         }
-        res.json({
-            message: 'User information updated'
-        })
+        res.json(data)
     })
 })
 

@@ -15,7 +15,6 @@ var bookRouter = require('./routes/book');
 var app = express();
 const db = require('./helper/db')();
 var server = require("http").createServer(app);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
