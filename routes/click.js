@@ -9,8 +9,8 @@ router.post('/add', (req, res) => {
     const { username, score } = req.body;
     console.log(name)
     const clicker = new Clicker({
-        username,
-        score
+        username:username,
+        score:0
     })
     clicker.save().then((data) => {
         res.json(data)
