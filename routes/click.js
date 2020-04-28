@@ -6,7 +6,7 @@ const Clicker = require('../models/Clicker');
 
 //Usernmae score ekleme
 router.post('/add', (req, res) => {
-    const { username, score } = req.body;
+    const { username } = req.body;
     console.log(name)
     const clicker = new Clicker({
         username:username,
@@ -40,3 +40,5 @@ router.put('/updateScore/:id', (req, res) => {
         res.json(data)
     })
 })
+
+module.exports = router;
