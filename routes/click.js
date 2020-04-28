@@ -2,15 +2,12 @@ var express = require('express');
 var router = express.Router();
 const Clicker = require('../models/Clicker');
 
-
-
-//Usernmae score ekleme
+//Username score ekleme
 router.post('/add', (req, res) => {
     const { username } = req.body;
-    console.log(name)
     const clicker = new Clicker({
         username:username,
-        score:0
+        score:null
     })
     clicker.save().then((data) => {
         res.json(data)
@@ -18,6 +15,8 @@ router.post('/add', (req, res) => {
         res.json(err)
     })
 })
+
+
 //Username score cagirma
 router.get('/get', (req, res) => {
     Clicker.find().then((data) => {
