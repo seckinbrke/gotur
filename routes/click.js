@@ -19,7 +19,9 @@ router.post('/add', (req, res) => {
 
 //Username score cagirma
 router.get('/get', (req, res) => {
-    Clicker.find().then((data) => {
+    Clicker.find({sort:{
+        score: -1 //Sort by Date Added DESC
+    }}).then((data) => {
         res.json(data);
     }).catch((err) => {
         res.json(err)
